@@ -31,6 +31,9 @@ const ModeSwitcher = styled.div`
   font-size: var(--fontsize-sm);
   text-transform: capitalize;
   cursor: pointer;
+  hover:
+    background-color: red;
+  
 `;
 
 const Header = () => {
