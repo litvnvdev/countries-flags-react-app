@@ -16,7 +16,6 @@ function App() {
       <Main>
         <Routes>
           <Route
-            exact
             path="/"
             element={<HomePage countries={countries} setCountries={setCountries} />}
           />
