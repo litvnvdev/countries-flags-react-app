@@ -8,14 +8,14 @@ import Controls from '../components/Controls';
 import ListCountries from '../components/ListCountries';
 import Card from '../components/Card';
 
-const HomePage = () => {
-  const [countries, setCountries] = useState([]);
-
+const HomePage = ({ countries, setCountries }) => {
+  const [filteredCountries, setFilteredCountries] = useState(countries);
   useEffect(() => {
-    axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
+    if (!countries.length) axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
   }, []);
 
   const navigate = useNavigate();
+
   return (
     <>
       <Controls />

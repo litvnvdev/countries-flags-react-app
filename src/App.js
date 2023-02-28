@@ -1,4 +1,5 @@
-import { Routes, Route, useMatch } from 'react-router-dom';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Main from './components/Main';
@@ -8,13 +9,18 @@ import NotFound from './pages/NotFound';
 import Details from './pages/Details';
 
 function App() {
+  const [countries, setCountries] = useState([]);
   return (
     <>
       <Header />
       <Main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/country/*" element={<Details />} />
+          <Route
+            exact
+            path="/"
+            element={<HomePage countries={countries} setCountries={setCountries} />}
+          />
+          <Route path="/country/:name" element={<Details />} />
           <Route element={<NotFound />} />
         </Routes>
       </Main>
