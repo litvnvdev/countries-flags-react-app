@@ -10,7 +10,7 @@ import InfoDetails from '../components/InfoDetails.jsx';
 const ButtonBack = styled.button`
   transition: 0.2s;
   background: var(--color-ui-base)
-  border: 2px solid #000;
+  border: 2px solid var(--border);
   cursor: pointer;
   box-shadow: var(--shadow);
   margin-right: 10px;
@@ -19,18 +19,12 @@ const ButtonBack = styled.button`
   color: var(--color-text);
   font-size: 22px;
   border-radius: 50%;
-  &:hover {
-    background: #fff;
-    border: 3px solid #fff;
-  }
 `;
 
 const Details = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const [country, setCountry] = useState(null);
-
-  console.log(country);
 
   useEffect(() => {
     axios.get(searchByCountry(name)).then(({ data }) => setCountry(data[0]));
@@ -40,9 +34,7 @@ const Details = () => {
       <ButtonBack onClick={() => navigate(-1)}>
         <IoArrowBack />
       </ButtonBack>
-      {country && <InfoDetails {...country} />}
-
-      <span>{name}</span>
+      {country && <InfoDetails {...country} navigate={navigate} />}
     </>
   );
 };

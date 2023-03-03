@@ -21,6 +21,7 @@ body[data-theme='dark'] {
   --color-text: hsl(0, 0%, 100%);
   --color-bg: hsl(207, 26%, 17%);
   --color-ui-base: hsl(209, 23%, 22%);
+  --сolor-on-hover: hsl(0, 0%, 100%);
 
   --shadow: rgba(245, 245, 245, 0.2) 0 0 8px;
   --border: hsl(0, 0%, 100%);
@@ -29,6 +30,7 @@ body[data-theme='light'] {
   --color-text: hsl(200, 15%, 8%);
   --color-bg: hsl(0, 0%, 90%);
   --color-ui-base: hsl(0, 0%, 100%);
+  --сolor-on-hover: hsl(200, 15%, 8%);
 
   --shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
   --border: hsl(200, 15%, 8%);
@@ -40,4 +42,9 @@ body {
   color: var(--color-text);
   font-weight: var(--fw-light);
   background-color: var(--color-bg);
+}
+
+button:hover {
+  color: #000;
+  background: #fff;
 }
